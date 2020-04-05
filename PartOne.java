@@ -8,44 +8,26 @@ public class PartOne {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("1. Map with just the word \n" +
-                "2. Map with scrabble point value \n" +
+        System.out.print("1. TreeMap \n" +
+                "2. HashMap \n" +
                 "Make a selection: ");
 
         int choiceOne = scan.nextInt();
 
         if (choiceOne == 1){
 
-            System.out.print("1. TreeMap \n" +
-                    "2. HashMap \n" +
-                    "Make a selection: ");
+            long startTime = System.nanoTime();
 
-            int choiceTwo = scan.nextInt();
+            readToTree();
 
-            if (choiceTwo == 1){
+            long estimatedTime = System.nanoTime() - startTime;
 
-                long startTime = System.nanoTime();
-
-                readToTree();
-
-                long estimatedTime = System.nanoTime() - startTime;
-
-                System.out.print("Amount of time: " + estimatedTime);
-            }
+            System.out.print("Amount of time: " + estimatedTime);
         }
+
 
         else {
 
-            System.out.print("1. TreeMap \n" +
-                    "2. HashMap \n" +
-                    "Make a selection: ");
-
-            int choiceTwo = scan.nextInt();
-
-            if (choiceTwo == 1){
-
-
-            }
         }
     }
 
@@ -57,15 +39,10 @@ public class PartOne {
 
             Scanner read = new Scanner(new File("file.txt"));
 
-            int i = 0;
-
             do {
 
                 String line = read.nextLine();
 
-                tree.put(line, i);
-
-                i++;
             }
 
             while (read.hasNext());
@@ -84,5 +61,75 @@ public class PartOne {
     public static HashMap readToHash() {
 
         HashMap<String, Integer>
+    }
+
+    public static TreeMap scrabbleToTree() {
+
+        TreeMap<String, Integer> scrabbleTree = new TreeMap<>();
+
+        try {
+
+            Scanner read = new Scanner(new File("scrabble.txt"));
+
+            do {
+
+                String [] line = read.nextLine().split(";");
+
+                String letter = line[0];
+
+                int value = Integer.parseInt(line[1]);
+
+                scrabbleTree.put(letter, value);
+            }
+
+            while (read.hasNext());
+
+            read.close();
+        }
+
+        catch (FileNotFoundException fnf) {
+
+            System.out.println("File not found");
+        }
+
+        return scrabbleTree;
+    }
+
+    public static HashMap scrabbleToHash() {
+
+        HashMap<String, Integer> scrabbleHash = new HashMap<>();
+
+        try {
+
+            Scanner read = new Scanner(new File("scrabble.txt"));
+
+            do {
+
+                String [] line = read.nextLine().split(";");
+
+                String letter = line [0];
+
+                int value = Integer.parseInt(line[1]);
+
+                scrabbleHash.put(letter, value);
+            }
+
+            while (read.hasNext());
+
+            read.close();
+        }
+
+        catch (FileNotFoundException fnf) {
+
+            System.out.println("File not found");
+        }
+
+        return scrabbleHash;
+    }
+
+    public static int findValueInTree(TreeMap scrabbleTree, String n) {
+
+        int value = scrabbleTree.get(n);
+        return value;
     }
 }
