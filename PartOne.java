@@ -16,9 +16,11 @@ public class PartOne {
 
         if (choiceOne == 1){
 
+            TreeMap<String, Integer> scrabbleTree = scrabbleToTree();
+
             long startTime = System.nanoTime();
 
-            readToTree();
+            readToTree(scrabbleTree);
 
             long estimatedTime = System.nanoTime() - startTime;
 
@@ -31,7 +33,7 @@ public class PartOne {
         }
     }
 
-    public static TreeMap readToTree() {
+    public static TreeMap readToTree(TreeMap scrabbleTree) {
 
         TreeMap<String, Integer> tree = new TreeMap<>();
 
@@ -129,7 +131,10 @@ public class PartOne {
 
     public static int findValueInTree(TreeMap scrabbleTree, String n) {
 
-        int value = scrabbleTree.get(n);
+        try {
+            int value = scrabbleTree.get(n);
+
+
         return value;
     }
 }
