@@ -25,7 +25,7 @@ public class PartTwo {
 
             long estimatedTime = System.nanoTime() - startTime;
 
-            System.out.print("Amount of time: " + estimatedTime);
+            System.out.println("Amount of time: " + estimatedTime);
 
 
 
@@ -42,7 +42,7 @@ public class PartTwo {
 
             estimatedTime = System.nanoTime() - startTime;
 
-            System.out.print("Amount of time to find word: " + estimatedTime);
+            System.out.println("Amount of time to find word: " + estimatedTime);
 
         }
 
@@ -53,7 +53,7 @@ public class PartTwo {
             long startTime = System.nanoTime();
             readToHash(scrabbleHash);
             long estimatedTime = System.nanoTime() - startTime;
-            System.out.print("Amount of time: " + estimatedTime);
+            System.out.println("Amount of time: " + estimatedTime);
 
 
 
@@ -70,7 +70,7 @@ public class PartTwo {
 
             estimatedTime = System.nanoTime() - startTime;
 
-            System.out.print("Amount of time to find word: " + estimatedTime);
+            System.out.println("Amount of time to find word: " + estimatedTime);
 
         }
 
@@ -146,7 +146,6 @@ public class PartTwo {
 
                 String letter = line[0];
 
-                int value = Integer.parseInt(line[1]);
 
                 scrabbleTree.add(letter);
             }
@@ -177,8 +176,6 @@ public class PartTwo {
                 String [] line = read.nextLine().split(";");
 
                 String letter = line [0];
-
-                int value = Integer.parseInt(line[1]);
 
                 scrabbleHash.add(letter);
             }
