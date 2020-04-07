@@ -30,7 +30,15 @@ public class PartOne {
 
         else {
 
+            HashMap<String, Integer> scrabbleHash = scrabbleToHash();
+
+
+
+
+
         }
+
+
     }
 
     public static TreeMap readToTree(TreeMap scrabbleTree) {
@@ -60,9 +68,15 @@ public class PartOne {
         return tree;
     }
 
-    public static HashMap readToHash() {
+    public static HashMap readToHash(HashMap scrabbleHash) {
 
         HashMap<String, Integer>
+
+
+
+
+
+
     }
 
     public static TreeMap scrabbleToTree() {
@@ -132,9 +146,13 @@ public class PartOne {
     public static int findValueInTree(TreeMap scrabbleTree, String n) {
 
         try {
-            int value = scrabbleTree.get(n);
 
-
-        return value;
+            int value = (int) scrabbleTree.get(n);
+            return value;
+        }
+        catch (NullPointerException nullP) {
+            System.out.println("No value found.");
+        }
+        return 0;
     }
 }
