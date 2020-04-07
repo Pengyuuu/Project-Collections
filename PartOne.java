@@ -29,47 +29,20 @@ public class PartOne {
             System.out.print("Amount of time: " + estimatedTime);
         }
 
-        else if (choiceOne == 2) {
-
-            HashMap<String, Integer> scrabbleHash = scrabbleToHash();
-
-            long startTime = System.nanoTime();
-
-            readToHash(scrabbleHash);
-
-            long estimatedTime = System.nanoTime() - startTime;
-
-            System.out.print("Amount of time: " + estimatedTime);
-
-        }
-
-        else if (choiceOne == 3) {
-
-            for (int i)
-
-
-
-        }
-
-        else if (choiceOne == 4) {
-
-            HashMap<String, Integer> scrabbleHash = scrabbleToHash();
-            long startTime = System.nanoTime();
-            readToHash(scrabbleHash);
-            long estimatedTime = System.nanoTime() - startTime;
-            System.out.print("Amount of time: " + estimatedTime);
-
-
-
-
-
-        }
-
         else {
 
+            HashMap<String, Integer> scrabbleHash = scrabbleToHash();
 
+            long startTime = System.nanoTime();
+
+            readToHash(scrabbleHash);
+
+            long estimatedTime = System.nanoTime() - startTime;
+
+            System.out.print("Amount of time: " + estimatedTime);
 
         }
+
 
 
     }
