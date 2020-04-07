@@ -27,14 +27,18 @@ public class PartOne {
             System.out.print("Amount of time: " + estimatedTime);
         }
 
-
-        else {
-
+        else if (choiceOne == 2) {
             HashMap<String, Integer> scrabbleHash = scrabbleToHash();
             long startTime = System.nanoTime();
             readToHash(scrabbleHash);
             long estimatedTime = System.nanoTime() - startTime;
             System.out.print("Amount of time: " + estimatedTime);
+
+        }
+
+        else {
+
+
 
         }
 
@@ -158,14 +162,36 @@ public class PartOne {
 
     public static int findValueInTree(TreeMap scrabbleTree, String n) {
 
+        int total = 0;
+
         try {
 
             int value = (int) scrabbleTree.get(n);
-            return value;
+            total += value;
+
         }
+
         catch (NullPointerException nullP) {
             System.out.println("No value found.");
         }
-        return 0;
+
+        return total;
+    }
+
+    public static int findValueInHash(HashMap scrabbleTree, String n) {
+
+        int total = 0;
+
+        try {
+
+            int value = (int) scrabbleTree.get(n);
+            total += value;
+        }
+
+        catch (NullPointerException nullP) {
+            System.out.println("No value found.");
+        }
+
+        return total;
     }
 }
