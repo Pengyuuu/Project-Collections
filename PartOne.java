@@ -31,10 +31,10 @@ public class PartOne {
         else {
 
             HashMap<String, Integer> scrabbleHash = scrabbleToHash();
-
-
-
-
+            long startTime = System.nanoTime();
+            readToHash(scrabbleHash);
+            long estimatedTime = System.nanoTime() - startTime;
+            System.out.print("Amount of time: " + estimatedTime);
 
         }
 
@@ -70,13 +70,26 @@ public class PartOne {
 
     public static HashMap readToHash(HashMap scrabbleHash) {
 
-        HashMap<String, Integer>
+        HashMap<String, Integer> tree = new HashMap<>();
 
+        try {
+            Scanner read = new Scanner(new File("file.txt"));
 
+            do {
+                String line = read.nextLine();
 
+            }
 
+            while (read.hasNext());
 
+            read.close();
+        }
 
+        catch (FileNotFoundException fnf) {
+            System.out.println("File not found");
+        }
+
+        return tree;
     }
 
     public static TreeMap scrabbleToTree() {
