@@ -8,10 +8,8 @@ public class PartOne {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("1. Load TreeMap \n" +
-                "2.Load HashMap \n" +
-                "1. Read TreeMap \n" +
-                "2. Read HashMap \n" +
+        System.out.print("1. TreeMap \n" +
+                "2. HashMap \n" +
                 "Make a selection: ");
 
         int choiceOne = scan.nextInt();
