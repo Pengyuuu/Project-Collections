@@ -8,8 +8,10 @@ public class PartOne {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("1. TreeMap \n" +
-                "2. HashMap \n" +
+        System.out.print("1. Load TreeMap \n" +
+                "2.Load HashMap \n" +
+                "1. Read TreeMap \n" +
+                "2. Read HashMap \n" +
                 "Make a selection: ");
 
         int choiceOne = scan.nextInt();
@@ -28,11 +30,38 @@ public class PartOne {
         }
 
         else if (choiceOne == 2) {
+
+            HashMap<String, Integer> scrabbleHash = scrabbleToHash();
+
+            long startTime = System.nanoTime();
+
+            readToHash(scrabbleHash);
+
+            long estimatedTime = System.nanoTime() - startTime;
+
+            System.out.print("Amount of time: " + estimatedTime);
+
+        }
+
+        else if (choiceOne == 3) {
+
+            for (int i)
+
+
+
+        }
+
+        else if (choiceOne == 4) {
+
             HashMap<String, Integer> scrabbleHash = scrabbleToHash();
             long startTime = System.nanoTime();
             readToHash(scrabbleHash);
             long estimatedTime = System.nanoTime() - startTime;
             System.out.print("Amount of time: " + estimatedTime);
+
+
+
+
 
         }
 
@@ -160,13 +189,15 @@ public class PartOne {
         return scrabbleHash;
     }
 
-    public static int findValueInTree(TreeMap scrabbleTree, String n) {
+    public static int findValueInTree(TreeMap scanTree, String n) {
 
         int total = 0;
 
+        TreeMap<String,Integer> scrabbleTree = new TreeMap<String,Integer>(scanTree);
+
         try {
 
-            int value = (int) scrabbleTree.get(n);
+            int value = scrabbleTree.get(n);
             total += value;
 
         }
@@ -178,14 +209,17 @@ public class PartOne {
         return total;
     }
 
-    public static int findValueInHash(HashMap scrabbleTree, String n) {
+    public static int findValueInHash(HashMap scanHash, String n) {
 
         int total = 0;
 
+        HashMap<String,Integer> scrabbleHash = new HashMap<String,Integer>(scanHash);
+
         try {
 
-            int value = (int) scrabbleTree.get(n);
+            int value = scrabbleHash.get(n);
             total += value;
+
         }
 
         catch (NullPointerException nullP) {

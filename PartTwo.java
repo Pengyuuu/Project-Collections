@@ -17,7 +17,7 @@ public class PartTwo {
 
         if (choiceOne == 1){
 
-            TreeMap<String, Integer> scrabbleTree = scrabbleToTree();
+            TreeSet<String> scrabbleTree = findTree();
 
             long startTime = System.nanoTime();
 
@@ -26,16 +26,51 @@ public class PartTwo {
             long estimatedTime = System.nanoTime() - startTime;
 
             System.out.print("Amount of time: " + estimatedTime);
+
+
+
+            System.out.println("Searching 100 times for specified word.");
+
+            startTime = System.nanoTime();
+
+            // need to pick random word in book then find that word
+            String n = "the";  // random word yet to be computed
+            boolean found = false;
+            for (int i = 0; i < 101; i++) {
+                found = findValueInTree(scrabbleTree,n);
+            }
+
+            estimatedTime = System.nanoTime() - startTime;
+
+            System.out.print("Amount of time to find word: " + estimatedTime);
+
         }
 
 
         else {
 
-            HashMap<String, Integer> scrabbleHash = scrabbleToHash();
+            HashSet<String> scrabbleHash = findHash();
             long startTime = System.nanoTime();
             readToHash(scrabbleHash);
             long estimatedTime = System.nanoTime() - startTime;
             System.out.print("Amount of time: " + estimatedTime);
+
+
+
+            System.out.println("Searching 100 times for specified word.");
+
+            startTime = System.nanoTime();
+
+            // need to pick random word in book then find that word
+            String n = "the";  // random word yet to be computed
+            boolean found = false;
+            for (int i = 0; i < 101; i++) {
+                found = findValueInHash(scrabbleHash,n);
+            }
+
+            estimatedTime = System.nanoTime() - startTime;
+
+            System.out.print("Amount of time to find word: " + estimatedTime);
 
         }
 
@@ -45,13 +80,13 @@ public class PartTwo {
 
 
 
-    public static TreeMap readToTree(TreeMap scrabbleTree) {
+    public static TreeSet readToTree(TreeSet scrabbleTree) {
 
-        TreeMap<String, Integer> tree = new TreeMap<>();
+        TreeSet<String> tree = new TreeSet<>();
 
         try {
 
-            Scanner read = new Scanner(new File("file.txt"));
+            Scanner read = new Scanner(new File("alice.txt"));
 
             do {
 
@@ -72,12 +107,12 @@ public class PartTwo {
         return tree;
     }
 
-    public static HashMap readToHash(HashMap scrabbleHash) {
+    public static HashSet readToHash(HashSet scrabbleHash) {
 
-        HashMap<String, Integer> tree = new HashMap<>();
+        HashSet<String> tree = new HashSet<>();
 
         try {
-            Scanner read = new Scanner(new File("file.txt"));
+            Scanner read = new Scanner(new File("alice.txt"));
 
             do {
                 String line = read.nextLine();
@@ -97,9 +132,9 @@ public class PartTwo {
     }
 
 
-    public static TreeMap scrabbleToTree() {
+    public static TreeSet findTree() {
 
-        TreeMap<String, Integer> scrabbleTree = new TreeMap<>();
+        TreeSet<String> scrabbleTree = new TreeSet<>();
 
         try {
 
@@ -113,7 +148,7 @@ public class PartTwo {
 
                 int value = Integer.parseInt(line[1]);
 
-                scrabbleTree.put(letter, value);
+                scrabbleTree.add(letter);
             }
 
             while (read.hasNext());
@@ -129,9 +164,9 @@ public class PartTwo {
         return scrabbleTree;
     }
 
-    public static HashMap scrabbleToHash() {
+    public static HashSet findHash() {
 
-        HashMap<String, Integer> scrabbleHash = new HashMap<>();
+        HashSet<String> scrabbleHash = new HashSet<>();
 
         try {
 
@@ -145,7 +180,7 @@ public class PartTwo {
 
                 int value = Integer.parseInt(line[1]);
 
-                scrabbleHash.put(letter, value);
+                scrabbleHash.add(letter);
             }
 
             while (read.hasNext());
@@ -162,7 +197,24 @@ public class PartTwo {
     }
 
 
+    public static boolean findValueInTree(TreeSet scanTree, String n) {
 
+        TreeSet<String> scrabbleTree = new TreeSet<String>(scanTree);
+
+        boolean word = scrabbleTree.contains(n);
+
+        return word;
+    }
+
+    public static boolean findValueInHash(HashSet scanHash, String n) {
+
+        HashSet<String> scrabbleHash = new HashSet<String>(scanHash);
+
+        boolean word = scrabbleHash.contains(n);
+
+        return word;
+
+    }
 
 
 
