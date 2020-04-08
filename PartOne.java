@@ -41,8 +41,6 @@ public class PartOne {
 
         }
 
-
-
     }
 
     public static TreeMap readToTree(TreeMap scrabbleTree) {
@@ -168,13 +166,15 @@ public class PartOne {
     public static int findValueInTree(TreeMap scanTree, String n) {
 
         int total = 0;
-
+        char letter;
         TreeMap<String,Integer> scrabbleTree = new TreeMap<String,Integer>(scanTree);
 
         try {
 
-            int value = scrabbleTree.get(n);
-            total += value;
+            for (int i = 0; i < n.length(); i++) {
+                letter = n.charAt(i);
+                total += scrabbleTree.get(Character.toString(letter));
+            }
 
         }
 
@@ -188,13 +188,16 @@ public class PartOne {
     public static int findValueInHash(HashMap scanHash, String n) {
 
         int total = 0;
+        char letter;
 
         HashMap<String,Integer> scrabbleHash = new HashMap<String,Integer>(scanHash);
 
         try {
 
-            int value = scrabbleHash.get(n);
-            total += value;
+            for (int i = 0; i < n.length(); i++) {
+                letter = n.charAt(i);
+                total += scrabbleHash.get(Character.toString(letter));
+            }
 
         }
 
