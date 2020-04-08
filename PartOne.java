@@ -49,6 +49,7 @@ public class PartOne {
 
         TreeMap<String, Integer> tree = new TreeMap<>();
 
+        int x = 0;
         try {
 
             Scanner read = new Scanner(new File("file.txt"));
@@ -56,6 +57,8 @@ public class PartOne {
             do {
 
                 String line = read.nextLine();
+                x = findValueInTree(scrabbleTree, line);
+                tree.put(line,x);
 
             }
 
@@ -75,13 +78,15 @@ public class PartOne {
     public static HashMap readToHash(HashMap scrabbleHash) {
 
         HashMap<String, Integer> tree = new HashMap<>();
+        int x = 0;
 
         try {
             Scanner read = new Scanner(new File("file.txt"));
 
             do {
                 String line = read.nextLine();
-
+                x = findValueInHash(scrabbleHash, line);
+                tree.put(line,x);
             }
 
             while (read.hasNext());
