@@ -17,11 +17,9 @@ public class PartTwo {
 
         if (choiceOne == 1){
 
-            TreeSet<String> scrabbleTree = findTree();
 
             long startTime = System.nanoTime();
-
-            readToTree(scrabbleTree);
+            TreeSet<String> scrabbleTree = readToTree();
 
             long estimatedTime = System.nanoTime() - startTime;
 
@@ -49,9 +47,8 @@ public class PartTwo {
 
         else {
 
-            HashSet<String> scrabbleHash = findHash();
             long startTime = System.nanoTime();
-            readToHash(scrabbleHash);
+            HashSet<String> scrabbleHash = readToHash();
             long estimatedTime = System.nanoTime() - startTime;
             System.out.println("Amount of time: " + estimatedTime);
 
@@ -78,9 +75,7 @@ public class PartTwo {
     }
 
 
-
-
-    public static TreeSet readToTree(TreeSet scrabbleTree) {
+    public static TreeSet readToTree() {
 
         TreeSet<String> tree = new TreeSet<>();
 
@@ -91,6 +86,11 @@ public class PartTwo {
             do {
 
                 String line = read.nextLine();
+                String[] words = line.split(" ");
+
+                for (int i = 0; i < words.length; i++) {
+                    tree.add(words[i]);
+                }
 
             }
 
@@ -107,7 +107,7 @@ public class PartTwo {
         return tree;
     }
 
-    public static HashSet readToHash(HashSet scrabbleHash) {
+    public static HashSet readToHash() {
 
         HashSet<String> tree = new HashSet<>();
 
@@ -116,7 +116,11 @@ public class PartTwo {
 
             do {
                 String line = read.nextLine();
+                String[] words = line.split(" ");
 
+                for (int i = 0; i < words.length; i++) {
+                    tree.add(words[i]);
+                }
             }
 
             while (read.hasNext());
@@ -129,68 +133,6 @@ public class PartTwo {
         }
 
         return tree;
-    }
-
-
-    public static TreeSet findTree() {
-
-        TreeSet<String> scrabbleTree = new TreeSet<>();
-
-        try {
-
-            Scanner read = new Scanner(new File("alice.txt"));
-
-            do {
-
-                String [] line = read.nextLine().split(";");
-
-                String letter = line[0];
-
-
-                scrabbleTree.add(letter);
-            }
-
-            while (read.hasNext());
-
-            read.close();
-        }
-
-        catch (FileNotFoundException fnf) {
-
-            System.out.println("File not found");
-        }
-
-        return scrabbleTree;
-    }
-
-    public static HashSet findHash() {
-
-        HashSet<String> scrabbleHash = new HashSet<>();
-
-        try {
-
-            Scanner read = new Scanner(new File("alice.txt"));
-
-            do {
-
-                String [] line = read.nextLine().split(";");
-
-                String letter = line [0];
-
-                scrabbleHash.add(letter);
-            }
-
-            while (read.hasNext());
-
-            read.close();
-        }
-
-        catch (FileNotFoundException fnf) {
-
-            System.out.println("File not found");
-        }
-
-        return scrabbleHash;
     }
 
 
