@@ -72,6 +72,10 @@ public class PartTwo {
 
     }
 
+    /**
+     * Reads the text file into a tree map
+     * @return  tree map with words from text file
+     */
     public static TreeSet readToTree() {
 
         TreeSet<String> tree = new TreeSet<>();
@@ -104,6 +108,10 @@ public class PartTwo {
         return tree;
     }
 
+    /**
+     * Reads the text file into a hash map
+     * @return  hash map with words from hash map
+     */
     public static HashSet readToHash() {
 
         HashSet<String> tree = new HashSet<>();
