@@ -256,4 +256,9 @@ public class PartThree {
         }
         return "Not found";
     }
+
+    @Override
+    public String toString(Object[] list) {
+        return list.toString();
+    }
 }
