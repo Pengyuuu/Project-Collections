@@ -68,7 +68,7 @@ public class PartThree {
            }
 
             estimatedTime = System.nanoTime() - startTime;
-            System.out.println("Amount of time to load to Arraylist to teams: " + estimatedTime);
+            System.out.println("Amount of time to load to Arraylist to teams: " + estimatedTime + '\n');
 
 
             // retrieving  elements
@@ -95,6 +95,8 @@ public class PartThree {
                 System.out.println(teams.get(i).toString());
                 System.out.println("Team #" + (i + 1) + "'s item: " + retrieved);
                 teams.get(i).add(element, newItem);
+                System.out.println(teams.get(i).toString());
+
             }
 
             estimatedTime = System.nanoTime() - startTime;
@@ -150,7 +152,7 @@ public class PartThree {
             }
 
             estimatedTime = System.nanoTime() - startTime;
-            System.out.print("Amount of time to load to Linked List to teams: " + estimatedTime);
+            System.out.print("Amount of time to load to Linked List to teams: " + estimatedTime + '\n');
 
 
             // retrieving  elements
