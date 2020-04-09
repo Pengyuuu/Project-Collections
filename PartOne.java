@@ -1,9 +1,9 @@
 /**@authors Erina Lara, Eric Truong
- *Date: April 8, 2020
- *Program: Reads in a text file full of words into either a tree map or hash map, depending on user choice. Also reads
- *in another text file full of letters with their scrabble point values into either a tree map or hash map. Time how
- *long either map would take to read in the words, find which ever is fastest. Time both to see which is fastest in
- *searching for a value.
+ * Date: April 8, 2020
+ * Program: Reads in a text file full of words into either a tree map or hash map, depending on user choice. Also reads
+ * in another text file full of letters with their scrabble point values into either a tree map or hash map. Time how
+ * long either map would take to read in the words, find which ever is fastest. Time both to see which is fastest in
+ * searching for a value.
  */
 
 import java.io.*;
@@ -96,7 +96,7 @@ public class PartOne {
             do {
 
                 String line = read.nextLine();
-                //x = findValueInTree(scrabbleTree, line);
+
                 tree.put(line, 0);
 
             }
@@ -126,8 +126,9 @@ public class PartOne {
             Scanner read = new Scanner(new File("file.txt"));
 
             do {
+
                 String line = read.nextLine();
-                //x = findValueInHash(scrabbleHash, line);
+
                 tree.put(line, 0);
             }
 
@@ -137,6 +138,7 @@ public class PartOne {
         }
 
         catch (FileNotFoundException fnf) {
+
             System.out.println("File not found");
         }
 
@@ -228,13 +230,15 @@ public class PartOne {
         try {
 
             for (int i = 0; i < n.length(); i++) {
-                char letter = n.charAt(i);
-                total  += (int) scanTree.get( Character.toString(letter).toUpperCase());
 
+                char letter = n.charAt(i);
+
+                total  += (int) scanTree.get( Character.toString(letter).toUpperCase());
             }
         }
 
         catch (NullPointerException nullP) {
+
             System.out.println("No value found." + total);
         }
 
@@ -256,13 +260,16 @@ public class PartOne {
         try {
 
             for (int i = 0; i < n.length(); i++) {
+
                 char letter = n.charAt(i);
+
                 total  += (int) scanHash.get( Character.toString(letter).toUpperCase());
 
             }
         }
 
         catch (NullPointerException nullP) {
+
             System.out.println("No value found.");
         }
 
@@ -287,6 +294,7 @@ public class PartOne {
 
             textTree.put(key, value);
         }
+
         return textTree;
     }
 
@@ -307,7 +315,6 @@ public class PartOne {
             value = findValueInHash(scrabbleHash, key);
 
             textHash.put(key, value);
-
         }
 
         return textHash;

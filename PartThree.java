@@ -1,3 +1,11 @@
+/**@authors Erina Lara, Eric Truong
+ * Date: April 8, 2020
+ * Program: Put 100 items into a list for a scavenger hunt, and then duplicate that list for a certain number of teams
+ * participating in the hunt. Time how long it takes to load the list for a team, how long to retrieve a certain item
+ * how long to insert an item at a certain position for everyone's list, how long to generate a random number from 0
+ * to 100 and retrieve the item at that position
+ */
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.*;
@@ -190,6 +198,10 @@ public class PartThree {
         }
     }
 
+    /**
+     * Loads the arraylist full of items
+     * @return  arraylist full of items
+     */
     public static ArrayList<String> loadArrayList() {
 
         ArrayList<String> list = new ArrayList<String>();
@@ -213,6 +225,10 @@ public class PartThree {
         return list;
     }
 
+    /**
+     * Load a linkedlist full of items
+     * @return  linkedlist  full of items
+     */
     public static LinkedList loadLinked() {
 
         LinkedList<String> list = new LinkedList<>();
@@ -237,6 +253,12 @@ public class PartThree {
         return list;
     }
 
+    /**
+     * Retrieve the item at a certain position
+     * @param element   position of item
+     * @param inventory arraylist of items
+     * @return          item retrieved
+     */
     public static String retrieveElementsArray(int element, ArrayList inventory) {
 
         for (int i = 0; i < inventory.size(); i++) {
@@ -247,6 +269,12 @@ public class PartThree {
         return "Not found";
     }
 
+    /**
+     * Retrieve the item at a certain position in a linkedlist
+     * @param element   position of item
+     * @param inventory linkedlist of items
+     * @return          item retrieved
+     */
     public static String retrieveElementsLinked(int element, LinkedList inventory) {
 
         for (int i = 0; i < inventory.size(); i++) {
@@ -257,6 +285,11 @@ public class PartThree {
         return "Not found";
     }
 
+    /**
+     * Prints the list of items in a nice string
+     * @param list  list of items
+     * @return      nicely formatted string
+     */
     //@Override
     public String toString(Object[] list) {
         return list.toString();

@@ -1,3 +1,9 @@
+/**@authors Erina Lara, Eric Truong
+ * Date: April 8, 2020
+ * Program: Insert all the words from Alice in Wonderland and time how long it takes to insert the words into a tree map
+ * or a hash map. Also time how long it takes to search for a word
+ */
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.*;
@@ -141,6 +147,12 @@ public class PartTwo {
     }
 
 
+    /**
+     * Check to see if the word exists in the tree map
+     * @param scanTree  tree map full of words
+     * @param n         word to search for
+     * @return          true if word exists, false otherwise
+     */
     public static boolean findValueInTree(TreeSet scanTree, String n) {
 
         TreeSet<String> scrabbleTree = new TreeSet<String>(scanTree);
@@ -150,6 +162,12 @@ public class PartTwo {
         return word;
     }
 
+    /**
+     * Check to see if the word exists in the hash map
+     * @param scanHash  hash map full of words
+     * @param n         word to search for
+     * @return          true if word exists, false otherwise
+     */
     public static boolean findValueInHash(HashSet scanHash, String n) {
 
         HashSet<String> scrabbleHash = new HashSet<String>(scanHash);
@@ -160,6 +178,11 @@ public class PartTwo {
 
     }
 
+    /**
+     * Puts the list into a nicely, formatted string
+     * @param list  list to be converted into a string
+     * @return      nicely, formatted string
+     */
     //@Override
     public String toString(Object[] list) {
         return list.toString();
