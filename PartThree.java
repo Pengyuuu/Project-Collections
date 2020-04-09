@@ -105,8 +105,6 @@ public class PartThree {
             estimatedTime = System.nanoTime() - startTime;
             System.out.println("Amount of time to retrieve  element #" + randNum + " (item) " + item + ": " + estimatedTime);
 
-
-
         }
 
         else {
@@ -190,7 +188,6 @@ public class PartThree {
             System.out.println("Amount of time to retrieve  element #" + randNum + " (item) " + item + ": " + estimatedTime);
 
         }
-
     }
 
     public static ArrayList<String> loadArrayList() {
@@ -198,14 +195,11 @@ public class PartThree {
         ArrayList<String> list = new ArrayList<String>();
 
         try {
-
             Scanner read = new Scanner(new File("items.txt"));
 
             do {
-
                 String line = read.nextLine();
                 list.add(line);
-
             }
 
             while (read.hasNext());
@@ -213,13 +207,10 @@ public class PartThree {
         }
 
         catch (FileNotFoundException fnf){
-
             System.out.println("File not found");
         }
 
-
         return list;
-
     }
 
     public static LinkedList loadLinked() {
@@ -227,11 +218,9 @@ public class PartThree {
         LinkedList<String> list = new LinkedList<>();
 
         try {
-
             Scanner read = new Scanner(new File("items.txt"));
 
             do {
-
                 String line = read.nextLine();
                 list.add(line);
 
@@ -245,9 +234,7 @@ public class PartThree {
 
             System.out.println("File not found");
         }
-
         return list;
-
     }
 
     public static String retrieveElementsArray(int element, ArrayList inventory) {
@@ -269,5 +256,4 @@ public class PartThree {
         }
         return "Not found";
     }
-
 }
