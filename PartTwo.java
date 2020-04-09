@@ -19,7 +19,7 @@ public class PartTwo {
 
 
             long startTime = System.nanoTime();
-            TreeSet<String> scrabbleTree = readToTree();
+            TreeSet<String> words = readToTree();
 
             long estimatedTime = System.nanoTime() - startTime;
 
@@ -31,11 +31,11 @@ public class PartTwo {
 
             startTime = System.nanoTime();
 
-            // need to pick random word in book then find that word
+            // chosen random word
             String n = "the";  // random word yet to be computed
             boolean found = false;
             for (int i = 0; i < 101; i++) {
-                found = findValueInTree(scrabbleTree,n);
+                found = findValueInTree(words,n);
             }
 
             estimatedTime = System.nanoTime() - startTime;
@@ -48,7 +48,7 @@ public class PartTwo {
         else {
 
             long startTime = System.nanoTime();
-            HashSet<String> scrabbleHash = readToHash();
+            HashSet<String> words = readToHash();
             long estimatedTime = System.nanoTime() - startTime;
             System.out.println("Amount of time: " + estimatedTime);
 
@@ -62,7 +62,7 @@ public class PartTwo {
             String n = "the";  // random word yet to be computed
             boolean found = false;
             for (int i = 0; i < 101; i++) {
-                found = findValueInHash(scrabbleHash,n);
+                found = findValueInHash(words,n);
             }
             estimatedTime = System.nanoTime() - startTime;
 
