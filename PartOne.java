@@ -166,20 +166,19 @@ public class PartOne {
     public static int findValueInTree(TreeMap scanTree, String n) {
 
         int total = 0;
-        char letter;
-        TreeMap<String,Integer> scrabbleTree = new TreeMap<String,Integer>(scanTree);
 
         try {
 
             for (int i = 0; i < n.length(); i++) {
-                letter = n.charAt(i);
-                total += scrabbleTree.get(Character.toString(letter));
+                char letter = n.charAt(i);
+                total  += (int) scanTree.get( Character.toString(letter).toUpperCase());
+
             }
 
         }
 
         catch (NullPointerException nullP) {
-            System.out.println("No value found.");
+            System.out.println("No value found." + total);
         }
 
         return total;
@@ -188,15 +187,15 @@ public class PartOne {
     public static int findValueInHash(HashMap scanHash, String n) {
 
         int total = 0;
-        char letter;
 
         HashMap<String,Integer> scrabbleHash = new HashMap<String,Integer>(scanHash);
 
         try {
 
             for (int i = 0; i < n.length(); i++) {
-                letter = n.charAt(i);
-                total += scrabbleHash.get(Character.toString(letter));
+                char letter = n.charAt(i);
+                total  += (int) scanHash.get( Character.toString(letter).toUpperCase());
+
             }
 
         }
