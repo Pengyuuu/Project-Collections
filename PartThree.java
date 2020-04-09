@@ -8,7 +8,6 @@ public class PartThree {
 
     public static void main(String[] args) {
 
-
         Scanner scan = new Scanner(System.in);
 
         System.out.print("1. ArrayList \n" +
@@ -16,6 +15,10 @@ public class PartThree {
                 "Make a selection: ");
 
         int choiceOne = scan.nextInt();
+
+        System.out.println("How many teams? ");
+        int teams = scan.nextInt();
+
 
         if (choiceOne == 1) {
             ArrayList<String> list = new ArrayList<String>();

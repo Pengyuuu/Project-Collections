@@ -64,16 +64,13 @@ public class PartTwo {
             for (int i = 0; i < 101; i++) {
                 found = findValueInHash(scrabbleHash,n);
             }
-
             estimatedTime = System.nanoTime() - startTime;
 
             System.out.println("Amount of time to find word: " + estimatedTime);
 
         }
 
-
     }
-
 
     public static TreeSet readToTree() {
 
